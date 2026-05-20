@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --color-indigo-50: #fff8f6;
+  --color-indigo-100: #ffeedb;
+  --color-indigo-200: #ffd6be;
+  --color-indigo-300: #ffb793;
+  --color-indigo-400: #ff9e79;
+  --color-indigo-500: #ff723f; /* Brand Primary Peach */
+  --color-indigo-600: #e85929; /* Hover Brand */
+  --color-indigo-700: #c03d14;
+  --color-indigo-800: #932c0c;
+  --color-indigo-950: #381206; /* Dark warm peach-accented container */
+  
+  --color-slate-900: #251814; /* Retheming sidebar base to warm dark terracotta */
+  --color-slate-950: #1e1310; /* Retheming app base to dark peach-chocolate */
+}
+
+/* Custom Scrollbar Styles for Tailwind */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 114, 63, 0.2);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 114, 63, 0.4);
+  }
+}
+
+/* Peach Theme variables mapping */
+:root {
+  --bg-primary: #190f0c; /* Deep peach black */
+  --bg-secondary: #221511; /* Dark chocolate-peach */
+  --border-color: rgba(255, 158, 121, 0.08);
+  --text-main: #fff2ec; /* Peach cream */
+  --text-muted: #bdaca6; /* Warm gray */
+  --panel-bg: rgba(34, 21, 17, 0.7);
+  --card-bg: rgba(48, 30, 24, 0.45);
+  --glow-indigo: rgba(255, 114, 63, 0.18);
+  --glow-red: rgba(239, 68, 68, 0.15);
+  --glow-emerald: rgba(16, 185, 129, 0.15);
+  --glow-amber: rgba(245, 158, 11, 0.15);
+}
+
+:root.light {
+  --bg-primary: #fffbf9; /* Warm peach cream */
+  --bg-secondary: #ffffff;
+  --border-color: rgba(255, 114, 63, 0.12);
+  --text-main: #331e18; /* Dark brown-peach text */
+  --text-muted: #8c7770; /* Warm slate */
+  --panel-bg: rgba(255, 255, 255, 0.75);
+  --card-bg: rgba(255, 245, 240, 0.8);
+  --glow-indigo: rgba(255, 114, 63, 0.1);
+  --glow-red: rgba(239, 68, 68, 0.08);
+  --glow-emerald: rgba(16, 185, 129, 0.08);
+  --glow-amber: rgba(245, 158, 11, 0.08);
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Card Glows */
+.glow-indigo-hover:hover {
+  box-shadow: 0 0 20px var(--glow-indigo);
+  border-color: rgba(255, 114, 63, 0.4);
+}
+
+.glow-red-hover:hover {
+  box-shadow: 0 0 20px var(--glow-red);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.glow-amber-hover:hover {
+  box-shadow: 0 0 20px var(--glow-amber);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.glow-emerald-hover:hover {
+  box-shadow: 0 0 20px var(--glow-emerald);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Dragging visual cues */
+.dragging {
+  opacity: 0.4;
+  transform: scale(0.96);
+  border-style: dashed;
+}
+
+.drag-over-column {
+  background-color: rgba(255, 114, 63, 0.05) !important;
+  border: 2px dashed rgba(255, 114, 63, 0.3) !important;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); }
+}
+
+.critical-pulse {
+  animation: pulseGlow 2s infinite ease-in-out;
+  border-color: rgba(239, 68, 68, 0.3);
+}
